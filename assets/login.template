@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入css样式 -->
+    <style>
+        * {
+            /* 去除浏览器默认内外边距 */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            /* 设置弹性布局 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 设置渐变色 */
+            background: linear-gradient(to right, #e6a49d, #fff)
+        }
+
+        /* 四叶草 */
+        .box {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            /* 设置换行 */
+            flex-wrap: wrap;
+            /* 动画，转动 */
+            animation: myRotate 10s linear infinite;
+        }
+
+        /* 单片四叶草，正方形 */
+        .clover {
+            width: 200px;
+            height: 200px;
+            background-color: #e6a49d;
+            border: 1px solid #fff;
+        }
+
+        /* 单片四叶草，圆形 */
+        .clover::before {
+            content: '';
+            width: 200px;
+            height: 200px;
+            background-color: #e6a49d;
+            position: absolute;
+            border-radius: 50%;
+            transform: translateX(-100px);
+        }
+
+        /* 单片四叶草，圆形 */
+        .clover::after {
+            content: '';
+            width: 200px;
+            height: 200px;
+            background-color: #e6a49d;
+            position: absolute;
+            border-radius: 50%;
+            transform: translateY(-100px);
+        }
+
+        /* 设置水平竖直方向的位置，以及旋转角度 */
+        .clover:nth-child(1) {
+            transform: translate(52px, 52px);
+        }
+
+        .clover:nth-child(2) {
+            transform: translate(52px, 52px) rotate(90deg);
+        }
+
+        .clover:nth-child(3) {
+            transform: translateX(52px) rotate(-90deg);
+        }
+
+        .clover:nth-child(4) {
+            transform: translateX(52px) rotate(180deg);
+        }
+
+        /* 旋转动画 */
+        @keyframes myRotate {
+            25% {
+                transform: rotate(90deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            75% {
+                transform: rotate(270deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 表单盒子 */
+        .form-box {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 5px;
+            right: 20%;
+            /* 模糊，磨砂质感 */
+            backdrop-filter: blur(10px);
+            box-shadow: 2px 1px 19px rgba(0, 0, 0, .1);
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-box,
+        .register-box {
+            /* 过渡动画 */
+            transition: 2s ease-in-out;
+        }
+
+        /* 一开始隐藏注册盒子 */
+        .register-box {
+            display: none;
+        }
+
+        /* 标题 */
+        .title {
+            margin-top: 50px;
+            text-align: center;
+            /* 设置用户禁止选中 */
+            user-select: none;
+            color: #fff;
+            /* 文字阴影 */
+            text-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+        }
+
+        /* 图片盒子 */
+        .img-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            user-select: none;
+            border-radius: 50%;
+            /* 溢出隐藏 */
+            overflow: hidden;
+            box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+            background-image: url("data:image/jpeg;base64,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");
+        }
+
+
+        /* 输入框 */
+        input {
+            outline: none;
+            width: 60%;
+            height: 40px;
+            margin-bottom: 20px;
+            text-indent: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 20px;
+            border: 1px solid #fff;
+
+
+        }
+
+        input::placeholder {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        input:focus::placeholder {
+            opacity: 0;
+        }
+
+
+        /* 按钮 */
+        button {
+            width: 100px;
+            height: 30px;
+            margin-bottom: 10px;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 4px;
+            background-color: #c08f8a;
+            /* border: 1px solid #e6a49d; */
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+    <title>登录</title>
+</head>
+<body>
+<!-- 四叶草 -->
+<div class="box">
+    <!-- 四叶草的单片叶子 -->
+    <div class="clover"></div>
+    <div class="clover"></div>
+    <div class="clover"></div>
+    <div class="clover"></div>
+</div>
+<!-- 表单盒子 -->
+<form class="form-box" action="/login" method="post">
+    <h1 class="title">Sign in</h1><!-- 标题 -->
+    <div class="img-box"></div><!-- 图片 -->
+    <input type="password" placeholder="密码" name="password">
+    <button type="submit">登录</button>
+</form>
+
+</body>
+</html>
