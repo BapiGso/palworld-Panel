@@ -4,6 +4,7 @@ import (
 	echojwt "github.com/labstack/echo-jwt/v4"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"palworld-panel/core/conf"
 	"palworld-panel/core/handler"
 	"palworld-panel/core/mymiddleware"
 	"text/template"
@@ -19,8 +20,6 @@ func (p *PalWorld) LoadMiddlewareRoutes() {
 			),
 		).Funcs(template.FuncMap{}),
 	}
-	p.e.Use(mymiddleware.LoadConf)
-
 	p.e.Use(middleware.Recover())
 	p.e.Use(middleware.Gzip())
 	p.e.Use(echojwt.WithConfig(echojwt.Config{
@@ -37,5 +36,8 @@ func (p *PalWorld) LoadMiddlewareRoutes() {
 	p.e.GET("/login", handler.LoginGet)
 	p.e.POST("/login", handler.LoginPost)
 	p.e.GET("/", handler.Index)
+	p.e.GET("/backups", handler.Backups)
+	p.e.GET("/setting", handler.Setting)
 	p.e.StaticFS("/assets", p.assetsFS)
+	p.e.Static("/backups", conf.Config.Get("serverPath").(string))
 }

@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>开倒</title>
+    <title>管理面板</title>
     <link rel="stylesheet" href="/assets/css/spectre.css">
     <link rel="stylesheet" href="/assets/css/spectre-exp.css">
     <link rel="stylesheet" href="/assets/css/spectre-icons.css">
+{{/*    <script type="text/javascript" src="/assets/js/alpine.min.js" defer></script>*/}}
     <style>
         *{
             padding: 0;
@@ -21,9 +22,6 @@
             > *{
                 width: 80vw;
             }
-            > form{
-                margin-top: 100px;
-            }
         }
 
         header{
@@ -37,6 +35,10 @@
                 margin-left: 30px;
                 margin-right: 30px;
             }
+        }
+
+        article{
+            margin-top: 80px;
         }
     </style>
 </head>

@@ -1,1 +1,8 @@
 {{template "header.template"}}
+<article>
+    <h1>服务器概览</h1>
+    <p>服务器运行状态:{{.IsRunning}}</p>
+    <p>服务器运行时间(小时):{{.DurationHour}}</p>
+    <p>服务器CPU占用(%):{{.CPUPercent}}</p>
+    <p>服务器内存占用(%):{{.MemPercent}}</p>
+</article>

@@ -1,0 +1,44 @@
+{{template "header.template"}}
+<article>
+    <h1>备份设置</h1>
+
+    <div class="dropdown">
+        <button class="btn btn-link dropdown-toggle" tabindex="0">
+            备份频率设置 <i class="icon icon-caret"></i>
+        </button>
+        <ul class="menu">
+            <li class="menu-item"><a href="?frequency=0">不备份</a></li>
+            <li class="menu-item"><a href="?frequency=1">1小时</a></li>
+            <li class="menu-item"><a href="?frequency=12">12小时</a></li>
+            <li class="menu-item"><a href="?frequency=24">24小时</a></li>
+        </ul>
+    </div>
+    <p><a href="?backupNow=1" class="btn btn-primary">立即备份一个存档(服务器会自动关闭一会)</a></p>
+
+    <br>
+    <p>备份文件默认保存在{{.data.serverPath}}\backups文件夹中</p>
+    {{if .data.installedSteam}}
+        <p>温馨提示:检测到您的电脑上已安装steam，幻兽帕鲁服务器迁移时会因为steam_appid变更导致人物存档变更</p>
+        <p>请根据该<a href="https://www.bilibili.com/video/BV1Qe411a7Ww">教程地址</a>迁移服务器</p>
+    {{else}}
+        <p>温馨提示:检测到您的电脑上未安装steam，迁移服务器时请不要在新服务上安装steam</p>
+        <p>幻兽帕鲁服务器迁移时会因为steam_appid变更导致人物存档变更</p>
+    {{end}}
+    <h2>备份存档</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>已经备份的存档</th>
+            <th>下载</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            {{range .backups}}
+            <td>{{.}}</td>
+            <td><a class="btn btn-primary" href="/backups/{{.}}">下载</a></td>
+            {{end}}
+        </tr>
+        </tbody>
+    </table>
+</article>

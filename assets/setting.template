@@ -1,0 +1,52 @@
+{{template "header.template"}}
+<article>
+    <h1>游戏文件配置</h1>
+    <form>
+        <label for="DayTimeSpeedRate">白天流逝速率</label>
+        <input name="DayTimeSpeedRate" class="slider" type="range" min="0.1" max="5" value="1" step="0.1">
+        <label for="NightTimeSpeedRate">夜晚流逝速率</label>
+        <input name="NightTimeSpeedRate" class="slider" type="range" min="0.1" max="5" value="1" step="0.1">
+        <label for="ExpRate">经验倍率</label>
+        <input name="ExpRate" class="slider" type="range" min="0.1" max="10" value="1">
+        <label for="PalCaptureRate">帕鲁捕获率</label>
+        <input name="PalCaptureRate" class="slider" type="range" min="0.5" max="2" value="1" step="0.1">
+        <label for="PalSpawnNumRate">帕鲁重生数量</label>
+        <input name="PalSpawnNumRate" class="slider" type="range" min="0.5" max="5" value="1">
+        <label for="PalDamageRateAttack">帕鲁攻击伤害</label>
+        <input name="PalDamageRateAttack" class="slider" type="range" min="0.1" max="10" value="8">
+        <label for="PalDamageRateDefense">帕鲁受伤倍率</label>
+        <input name="PalDamageRateDefense" class="slider" type="range" min="0.1" max="10" value="0.2">
+        <label for="PlayerDamageRateAttack">玩家攻击伤害</label>
+        <input name="PlayerDamageRateAttack" class="slider" type="range" min="0.1" max="10" value="1">
+        <label for="PlayerDamageRateDefense">玩家受伤倍率</label>
+        <input name="PlayerDamageRateDefense" class="slider" type="range" min="0.1" max="10" value="0.3">
+        <label for="PlayerStomachDecreaceRate">玩家饥饿速度</label>
+        <input name="PlayerStomachDecreaceRate" class="slider" type="range" min="0.1" max="5" value="1">
+        <label for="PalStomachDecreaceRate">帕鲁饥饿速度</label>
+        <input name="PalStomachDecreaceRate" class="slider" type="range" min="0.1" max="5" value="1">
+        <label for="PlayerStaminaDecreaceRate">玩家耐力消耗</label>
+        <input name="PlayerStaminaDecreaceRate" class="slider" type="range" min="0.1" max="5" value="0.6">
+        <label for="PalStaminaDecreaceRate">帕鲁耐力消耗</label>
+        <input name="PalStaminaDecreaceRate" class="slider" type="range" min="0.1" max="5" value="0.3">
+        <label for="PlayerAutoHPRegeneRate">玩家生命回复</label>
+        <input name="PlayerAutoHPRegeneRate" class="slider" type="range" min="0.1" max="10" value="4">
+        <label for="PlayerAutoHpRegeneRateInSleep">玩家战斗结束回血</label>
+        <input name="PlayerAutoHpRegeneRateInSleep" class="slider" type="range" min="0.1" max="10" value="4">
+        <label for="PalAutoHPRegeneRate">帕鲁生命回复</label>
+        <input name="PalAutoHPRegeneRate" class="slider" type="range" min="0.1" max="10" value="4">
+        <label for="PalAutoHpRegeneRateInSleep">帕鲁战斗结束回血</label>
+        <input name="PalAutoHpRegeneRateInSleep" class="slider" type="range" min="0.1" max="10" value="4">
+        <label for="BuildObjectDamageRate">建筑受损伤害</label>
+        <input name="BuildObjectDamageRate" type="range" min="0.5" max="3" value="1">
+        <label for="BuildObjectDeteriorationDamageRate">建筑劣化速率</label>
+        <input name="BuildObjectDeteriorationDamageRate" type="range" min="0" max="10" value="1">
+        <label for="CollectionDropRate">收集资源倍率</label>
+        <input name="CollectionDropRate" type="range" min="0.5" max="10" value="2">
+        <label for="CollectionObjectHpRate">收集资源生命</label>
+        <input name="CollectionObjectHpRate" type="range" min="0.5" max="3" value="1">
+        <label for="CollectionObjectRespawnSpeedRate">资源重生间隔</label>
+        <input name="CollectionObjectRespawnSpeedRate" type="range" min="0" max="3" step="0.5" value="0.5">
+        <label for="EnemyDropItemRate">敌人掉落倍率</label>
+        <input name="EnemyDropItemRate" type="range" min="0.5" max="10" value="2">
+    </form>
+</article>
