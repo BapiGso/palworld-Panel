@@ -25,6 +25,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with: # 将下述可执行文件 release 上去
+          token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             palworld-Panel_windows_amd64.exe
             palworld-Panel_windows_arm64.exe

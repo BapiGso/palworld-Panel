@@ -14,12 +14,12 @@ func Backups(c echo.Context) error {
 	if configData["serverPath"] == nil {
 		return c.String(200, "未找到服务器路径,请运行服务器后在打开面板")
 	}
-	if c.Param("frequency") != "" {
+	if c.QueryParam("frequency") != "" {
 		frequency, _ := strconv.ParseInt(c.Param("frequency"), 10, 64)
 		conf.Config.Set("backupsFrequency", frequency)
 		return c.String(200, "设置成功")
 	}
-	if c.Param("backupNow") == "1" {
+	if c.QueryParam("backupNow") == "1" {
 		backups.Compress()
 		return c.Redirect(302, "/backups")
 	}

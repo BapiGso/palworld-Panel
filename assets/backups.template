@@ -13,7 +13,7 @@
             <li class="menu-item"><a href="?frequency=24">24小时</a></li>
         </ul>
     </div>
-    <p><a href="?backupNow=1" class="btn btn-primary">立即备份一个存档(服务器会自动关闭一会)</a></p>
+    <p><a href="?backupNow=1" class="btn btn-primary">立即备份一个存档</a></p>
 
     <br>
     <p>备份文件默认保存在{{.data.serverPath}}\backups文件夹中</p>
