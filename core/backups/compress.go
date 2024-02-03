@@ -12,7 +12,7 @@ import (
 
 func Compress() {
 	src_dir := conf.Config.Get("serverPath").(string) + "\\Pal\\Saved"
-	zipfile, _ := os.Create(time.Now().Format("20060102-150405") + ".zip")
+	zipfile, _ := os.Create(conf.Config.Get("serverPath").(string) + "\\backups\\" + time.Now().Format("20060102-150405") + ".zip")
 	defer zipfile.Close()
 	// 打开：zip文件
 	archive := zip.NewWriter(zipfile)

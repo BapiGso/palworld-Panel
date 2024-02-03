@@ -33,12 +33,12 @@
         </tr>
         </thead>
         <tbody>
+        {{range .backups}}
         <tr class="active">
-            {{range .backups}}
             <td>{{.}}</td>
             <td><a class="btn btn-primary" href="/backups/{{.}}">下载</a></td>
-            {{end}}
         </tr>
+        {{end}}
         </tbody>
     </table>
 </article>
